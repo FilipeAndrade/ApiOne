@@ -14,9 +14,9 @@ namespace ApiOne.Controllers
         /// </summary>
         /// <returns>Retorna um valor string (0,01)</returns>
         [HttpGet]
-        public ActionResult<string> Get()
+        public IActionResult Get()
         {
-            return new string("0,01");
+            return Ok("0,01");
         }
     }
 }

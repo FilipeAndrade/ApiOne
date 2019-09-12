@@ -4,5 +4,16 @@
         <name>ApiOne</name>
     </assembly>
     <members>
+        <member name="T:ApiOne.Controllers.TaxaJurosController">
+            <summary>
+            Controller responsável pelo método que retorna a taxa de juros
+            </summary>
+        </member>
+        <member name="M:ApiOne.Controllers.TaxaJurosController.Get">
+            <summary>
+            Método responsável pelo retorno da taxa de juros (Retorna fixo 0,01)
+            </summary>
+            <returns>Retorna um valor string (0,01)</returns>
+        </member>
     </members>
 </doc>

@@ -5,18 +5,18 @@ namespace ApiOne.Controllers
     /// <summary>
     /// Controller responsável pelo método que retorna a taxa de juros
     /// </summary>
-    [Route("api/[controller]")]
+    [Route("api/taxajuros")]
     [ApiController]
-    public class TaxaJurosController : ControllerBase
+    public class TaxesController : ControllerBase
     {
         /// <summary>
         /// Método responsável pelo retorno da taxa de juros (Retorna fixo 0,01)
         /// </summary>
         /// <returns>Retorna um valor string (0,01)</returns>
         [HttpGet]
-        public ActionResult<string> Get()
+        public IActionResult Get()
         {
-            return new string("0,01");
+            return Ok("0,01");
         }
     }
 }

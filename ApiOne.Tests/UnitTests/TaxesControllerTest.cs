@@ -8,7 +8,7 @@ namespace ApiOne.Tests.UnitTests
     public class TaxesControllerTest
     {
         [TestMethod]
-        public void TestTaxes()
+        public void GetTaxes_Success()
         {
             var controller = new TaxesController();
             

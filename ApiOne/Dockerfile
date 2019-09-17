@@ -2,7 +2,7 @@
 #For more information, please see https://aka.ms/containercompat
 
 FROM mcr.microsoft.com/dotnet/core/aspnet:2.1-nanoserver-1903 AS base
-WORKDIR /app
+WORKDIR /app/apiOne
 EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/core/sdk:2.1-nanoserver-1903 AS build
@@ -11,12 +11,12 @@ COPY ["ApiOne/ApiOne.csproj", "ApiOne/"]
 RUN dotnet restore "ApiOne/ApiOne.csproj"
 COPY . .
 WORKDIR "/src/ApiOne"
-RUN dotnet build "ApiOne.csproj" -c Release -o /app
+RUN dotnet build "ApiOne.csproj" -c Release -o /app/apiOne
 
 FROM build AS publish
-RUN dotnet publish "ApiOne.csproj" -c Release -o /app
+RUN dotnet publish "ApiOne.csproj" -c Release -o /app/apiOne
 
 FROM base AS final
-WORKDIR /app
-COPY --from=publish /app .
+WORKDIR /app/apiOne
+COPY --from=publish /app/apiOne .
 ENTRYPOINT ["dotnet", "ApiOne.dll"]
